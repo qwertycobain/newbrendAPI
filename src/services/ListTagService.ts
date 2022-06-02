@@ -8,7 +8,8 @@ class listTagsService{
   async execute(){
     const tagsRepositories = getCustomRepository(TagsRepositories)
     
-    const tags = await tagsRepositories.findOne()
+    const tags = await tagsRepositories.find()
+    
     return tags
   }
 
