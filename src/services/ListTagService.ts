@@ -2,7 +2,7 @@ import {getCustomRepository} from "typeorm"
 
 import { TagsRepositories } from "../repositories/TagsRepositories"
 
-
+import {classToPlain, instanceToPlain} from "class-transformer"
 
 class listTagsService{
   async execute(){
@@ -10,7 +10,8 @@ class listTagsService{
     
     const tags = await tagsRepositories.find()
     
-    return tags
+    
+    return instanceToPlain(tags)
   }
 
 }
